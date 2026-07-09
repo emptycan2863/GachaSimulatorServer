@@ -9,10 +9,11 @@ builder.Services.AddNpgsqlDataSource(connectionString);
 
 var app = builder.Build();
 
-app.MapGet("/serverActive", () => {
+app.MapGet("/health", () => {
     return Results.Ok("active");
 });
 
 app.MapLoginEndpoints();
+app.MapOnlineEndpoints();
 
 app.Run();
